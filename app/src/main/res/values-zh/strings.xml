@@ -55,7 +55,7 @@
     <!-- Stats -->
     <string name="previous_day">前一天</string>
     <string name="next_day">后一天</string>
-    <string name="step_count">步数</string>
+    <string name="step_count_title">步数</string>
     <plurals name="step_count_format">
         <item quantity="one">%d 步</item>
         <item quantity="other">%d 步</item>

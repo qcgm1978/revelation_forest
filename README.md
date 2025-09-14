@@ -40,7 +40,7 @@
 
 ## 安装与首次启动
 
-1. 从 [Releases](https://github.com/bartek537/forest/releases) 下载最新的 **稳定版** 应用程序二进制文件（.apk 文件）。
+1. 从 [Releases](https://github.com/qcgm1978/revelation_forest/releases) 下载最新的 **稳定版** 应用程序二进制文件（.apk 文件）。
 2. 点击下载的文件，如果出现提示，暂时 **允许来自未知来源的安装**（安装后将其关闭）。
 3. 在某些设备上，您可能会遇到 Play Protect 警告，但请不要担心——该应用是安全的，并且是开源的。我只是一个未经认证的开发者。
 4. 点击“安装”并等待应用安装完成。
