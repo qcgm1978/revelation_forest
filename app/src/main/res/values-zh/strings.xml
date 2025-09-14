@@ -77,4 +77,8 @@
         <item>正常</item>
         <item>快</item>
     </string-array>
+
+    <!-- About -->
+    <string name="about">关于</string>
+    <string name="github_summary">查看我们的 GitHub 仓库，帮助我们改进应用</string>
 </resources>
