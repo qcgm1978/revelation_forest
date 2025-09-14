@@ -19,14 +19,14 @@
 
     <!-- Navigation -->
     <string name="forest">爱秋</string>
-    <string name="tree">树</string>
+    <string name="tree">书</string>
     <string name="stats">统计</string>
 
     <!-- Forest -->
     <string name="flower">花</string>
     <plurals name="trees">
-        <item quantity="one">树</item>
-        <item quantity="other">树</item>
+        <item quantity="one">书</item>
+        <item quantity="other">书</item>
     </plurals>
     <string name="welcome_line_1">哈啰，秋。</string>
     <string name="welcome_line_2">每一步都是进步，期待花开。</string>

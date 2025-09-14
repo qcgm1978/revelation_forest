@@ -26,6 +26,7 @@ class StatsDetailsViewModel(
         StatsDetailsState(
             date = LocalDate.MIN,
             stepsTaken = 0,
+            goal = 0,
             treeCollected = false,
             calorieBurned = 0,
             distanceTravelled = 0.0,
@@ -57,6 +58,7 @@ class StatsDetailsViewModel(
             _day.value = day.value.copy(
                 date = it.date,
                 stepsTaken = it.steps,
+                goal = it.goal,
                 treeCollected = it.steps >= it.goal,
                 calorieBurned = it.calorieBurned.roundToInt(),
                 distanceTravelled = it.distanceTravelled,

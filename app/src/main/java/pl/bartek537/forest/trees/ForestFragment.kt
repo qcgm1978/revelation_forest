@@ -59,7 +59,7 @@ class ForestFragment : Fragment() {
             binding.buttonReset.isVisible = true
 
             binding.buttonWalk.setOnClickListener {
-                viewModel.incrementSteps(5000)
+                viewModel.incrementSteps(500)
             }
 
             binding.buttonReset.setOnClickListener {

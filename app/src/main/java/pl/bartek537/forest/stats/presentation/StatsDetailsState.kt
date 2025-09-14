@@ -5,6 +5,7 @@ import java.time.LocalDate
 data class StatsDetailsState(
     val date: LocalDate,
     val stepsTaken: Int,
+    val goal: Int,
     val treeCollected: Boolean,
     val calorieBurned: Int,
     val distanceTravelled: Double,

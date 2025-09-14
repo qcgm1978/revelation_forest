@@ -5,7 +5,7 @@
     <PreferenceCategory app:title="@string/goals">
 
         <EditTextPreference
-            app:defaultValue="7500"
+            app:defaultValue="10000"
             app:key="daily_goal"
             app:title="@string/daily_goal" />
 

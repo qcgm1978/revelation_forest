@@ -11,6 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.qcgm1978.forest.R
 import com.qcgm1978.forest.databinding.FragmentStatsChartBinding
 import kotlinx.coroutines.launch
 import java.time.LocalDate
@@ -44,8 +45,9 @@ class StatsChartFragment : Fragment() {
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                statsDetailsViewModel.day.collect {
-                    updateUserInterface(it.date, it.chartDateRange)
+                statsDetailsViewModel.day.collect { day ->
+                    val progress = if (day.goal > 0) day.stepsTaken * 100 / day.goal else 0
+                    updateUserInterface(day.date, day.chartDateRange, progress)
                 }
             }
         }
@@ -56,13 +58,28 @@ class StatsChartFragment : Fragment() {
         statsDetailsViewModel.selectDay(currentDate.plusDays(offset))
     }
 
-    private fun updateUserInterface(selectedDate: LocalDate, dateRange: ClosedRange<LocalDate>) {
+    private fun updateUserInterface(selectedDate: LocalDate, dateRange: ClosedRange<LocalDate>, progress: Int) {
         binding.apply {
             textSelectedDate.text = selectedDate.format(dateFormatter)
             buttonPreviousDay.isVisible = selectedDate.isAfter(dateRange.start)
             buttonNextDay.isVisible = selectedDate.isBefore(dateRange.endInclusive)
             chartPageAdapter.dateRange = dateRange
             scrollChartTo(selectedDate)
+            imageTree.setImageResource(getTreeResource(progress))
+        }
+    }
+
+    private fun getTreeResource(progress: Int): Int {
+        return when (progress) {
+            in 0..10 -> R.drawable.cover
+            in 11..20 -> R.drawable.part_1
+            in 21..30 -> R.drawable.part_2
+            in 31..40 -> R.drawable.part_3
+            in 41..50 -> R.drawable.part_4
+            in 51..60 -> R.drawable.part_5
+            in 61..70 -> R.drawable.part_6
+            in 71..80 -> R.drawable.part_7
+            else -> R.drawable.part_8
         }
     }
 

@@ -15,7 +15,7 @@
 
 ## 功能 (Features)
 
-<img src="https://user-images.githubusercontent.com/60577942/221682705-39a0e476-bb52-4257-8d3b-5e5a64e72424.gif" alt="application demo" width="270">
+<video src="https://github-production-user-asset-6210df.s3.amazonaws.com/3024299/489293794-444b9ea5-779c-4cb7-8422-eee87ce05cce.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250914T160532Z&X-Amz-Expires=300&X-Amz-Signature=9151cfb8578ea760f451db4b927180d4cf49004fe5f05f1795127bdf5d594685&X-Amz-SignedHeaders=host" alt="application demo" width="270"></video>
 
 <br />
 

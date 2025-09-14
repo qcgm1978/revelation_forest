@@ -58,7 +58,8 @@ class ProgressFragment : Fragment() {
     }
 
     private fun updateTree(state: ProgressState) = state.apply {
-        val treeResource = getTreeResource(stepsTaken.toDouble() / dailyGoal)
+        val progressPercent = if (dailyGoal > 0) (stepsTaken * 100 / dailyGoal) else 0
+        val treeResource = getTreeResource(progressPercent)
         binding.imageTree.setImageResource(treeResource)
     }
 
@@ -79,13 +80,17 @@ class ProgressFragment : Fragment() {
         }
     }
 
-    private fun getTreeResource(progress: Double) =
-        when {
-            progress < .2 -> R.drawable.stage_1
-            progress < .4 -> R.drawable.stage_2
-            progress < .6 -> R.drawable.stage_3
-            progress < .8 -> R.drawable.stage_4
-            progress < 1 -> R.drawable.stage_5
-            else -> R.drawable.stage_6
+    private fun getTreeResource(progress: Int): Int {
+        return when (progress) {
+            in 0..10 -> R.drawable.cover
+            in 11..20 -> R.drawable.part_1
+            in 21..30 -> R.drawable.part_2
+            in 31..40 -> R.drawable.part_3
+            in 41..50 -> R.drawable.part_4
+            in 51..60 -> R.drawable.part_5
+            in 61..70 -> R.drawable.part_6
+            in 71..80 -> R.drawable.part_7
+            else -> R.drawable.part_8
         }
+    }
 }
