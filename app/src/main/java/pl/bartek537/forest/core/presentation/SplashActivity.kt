@@ -1,4 +1,4 @@
-package pl.bartek537.forest.core.presentation
+package com.qcgm1978.forest.core.presentation
 
 import android.Manifest
 import android.annotation.SuppressLint

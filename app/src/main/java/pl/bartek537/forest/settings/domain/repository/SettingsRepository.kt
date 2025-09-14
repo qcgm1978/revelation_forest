@@ -1,7 +1,7 @@
-package pl.bartek537.forest.settings.domain.repository
+package com.qcgm1978.forest.settings.domain.repository
 
 import kotlinx.coroutines.flow.Flow
-import pl.bartek537.forest.settings.domain.model.Settings
+import com.qcgm1978.forest.settings.domain.model.Settings
 
 interface SettingsRepository {
 

@@ -1,4 +1,4 @@
-package pl.bartek537.forest.stats
+package com.qcgm1978.forest.stats
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
-import pl.bartek537.forest.R
-import pl.bartek537.forest.databinding.FragmentStatsBinding
-import pl.bartek537.forest.stats.presentation.StatsDetailsFragment
-import pl.bartek537.forest.stats.presentation.StatsSummaryFragment
+import com.qcgm1978.forest.R
+import com.qcgm1978.forest.databinding.FragmentStatsBinding
+import com.qcgm1978.forest.stats.presentation.StatsDetailsFragment
+import com.qcgm1978.forest.stats.presentation.StatsSummaryFragment
 
 class StatsFragment : Fragment() {
 

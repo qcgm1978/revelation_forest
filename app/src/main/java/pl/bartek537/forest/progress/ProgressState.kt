@@ -1,4 +1,4 @@
-package pl.bartek537.forest.progress
+package com.qcgm1978.forest.progress
 
 import java.time.LocalDate
 

@@ -1,4 +1,4 @@
-package pl.bartek537.forest.stats.presentation
+package com.qcgm1978.forest.stats.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,9 +10,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.qcgm1978.forest.R
+import com.qcgm1978.forest.databinding.FragmentStatsDetailsBinding
 import kotlinx.coroutines.launch
-import pl.bartek537.forest.R
-import pl.bartek537.forest.databinding.FragmentStatsDetailsBinding
 
 class StatsDetailsFragment : Fragment() {
 

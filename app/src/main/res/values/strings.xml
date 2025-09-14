@@ -86,4 +86,7 @@
     <string name="github" translatable="false">GitHub</string>
     <string name="github_summary">Check out our GitHub repository and help us improve the app</string>
     <string name="github_repository_url" translatable="false">https://github.com/bk20dev/forest</string>
+
+    <!-- Other strings -->
+    <string name="step_count_format">Steps: %1$d</string>
 </resources>

@@ -1,4 +1,4 @@
-package pl.bartek537.forest
+package com.qcgm1978.forest
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package pl.bartek537.forest.core.data.source.util
+package com.qcgm1978.forest.core.data.source.util
 
 import androidx.room.TypeConverter
 import java.time.LocalDate

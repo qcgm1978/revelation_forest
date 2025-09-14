@@ -1,4 +1,4 @@
-package pl.bartek537.forest
+package com.qcgm1978.forest
 
 import android.app.Application
 import android.content.BroadcastReceiver
@@ -8,10 +8,11 @@ import android.content.IntentFilter
 import androidx.preference.PreferenceManager
 import androidx.room.Room
 import com.google.android.material.color.DynamicColors
+import com.qcgm1978.forest.R
 import kotlinx.coroutines.flow.MutableStateFlow
-import pl.bartek537.forest.core.data.source.ForestDatabase
-import pl.bartek537.forest.settings.data.source.SettingsStore
-import pl.bartek537.forest.settings.data.source.SettingsStoreImpl
+import com.qcgm1978.forest.core.data.source.ForestDatabase
+import com.qcgm1978.forest.settings.data.source.SettingsStore
+import com.qcgm1978.forest.settings.data.source.SettingsStoreImpl
 import java.time.LocalDate
 
 class ForestApplication : Application() {

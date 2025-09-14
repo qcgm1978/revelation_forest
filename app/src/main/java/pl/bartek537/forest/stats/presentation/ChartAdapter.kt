@@ -1,4 +1,4 @@
-package pl.bartek537.forest.stats.presentation
+package com.qcgm1978.forest.stats.presentation
 
 import android.content.res.ColorStateList
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import pl.bartek537.forest.databinding.ItemChartBarBinding
-import pl.bartek537.forest.stats.util.getThemeColor
+import com.qcgm1978.forest.databinding.ItemChartBarBinding
+import com.qcgm1978.forest.stats.util.getThemeColor
 
 class ChartAdapter<T>(
     private val listener: OnValueSelected<T>

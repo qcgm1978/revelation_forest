@@ -1,6 +1,6 @@
-package pl.bartek537.forest.trees.domain.usecase
+package com.qcgm1978.forest.trees.domain.usecase
 
-import pl.bartek537.forest.core.domain.repository.DayRepository
+import com.qcgm1978.forest.core.domain.repository.DayRepository
 
 class ForestUseCases(
     dayRepository: DayRepository

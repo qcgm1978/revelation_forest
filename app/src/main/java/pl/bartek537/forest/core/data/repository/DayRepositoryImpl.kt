@@ -1,10 +1,10 @@
-package pl.bartek537.forest.core.data.repository
+package com.qcgm1978.forest.core.data.repository
 
 import kotlinx.coroutines.flow.Flow
-import pl.bartek537.forest.core.data.source.DayDao
-import pl.bartek537.forest.core.domain.model.Day
-import pl.bartek537.forest.core.domain.model.DaySettings
-import pl.bartek537.forest.core.domain.repository.DayRepository
+import com.qcgm1978.forest.core.data.source.DayDao
+import com.qcgm1978.forest.core.domain.model.Day
+import com.qcgm1978.forest.core.domain.model.DaySettings
+import com.qcgm1978.forest.core.domain.repository.DayRepository
 import java.time.LocalDate
 
 class DayRepositoryImpl(

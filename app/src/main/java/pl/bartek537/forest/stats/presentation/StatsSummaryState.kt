@@ -1,4 +1,4 @@
-package pl.bartek537.forest.stats.presentation
+package com.qcgm1978.forest.stats.presentation
 
 data class StatsSummaryState(
     val isRefreshing: Boolean = false,

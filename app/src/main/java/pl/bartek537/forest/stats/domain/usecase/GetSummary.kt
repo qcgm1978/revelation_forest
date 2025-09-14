@@ -1,8 +1,8 @@
-package pl.bartek537.forest.stats.domain.usecase
+package com.qcgm1978.forest.stats.domain.usecase
 
-import pl.bartek537.forest.core.domain.model.StatsSummary
-import pl.bartek537.forest.core.domain.model.of
-import pl.bartek537.forest.core.domain.repository.DayRepository
+import com.qcgm1978.forest.core.domain.model.StatsSummary
+import com.qcgm1978.forest.core.domain.model.of
+import com.qcgm1978.forest.core.domain.repository.DayRepository
 
 interface GetSummary {
     suspend operator fun invoke(): StatsSummary

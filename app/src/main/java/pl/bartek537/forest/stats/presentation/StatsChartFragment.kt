@@ -1,4 +1,4 @@
-package pl.bartek537.forest.stats.presentation
+package com.qcgm1978.forest.stats.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.qcgm1978.forest.databinding.FragmentStatsChartBinding
 import kotlinx.coroutines.launch
-import pl.bartek537.forest.databinding.FragmentStatsChartBinding
 import java.time.LocalDate
 import java.time.Period
 import java.time.format.DateTimeFormatter

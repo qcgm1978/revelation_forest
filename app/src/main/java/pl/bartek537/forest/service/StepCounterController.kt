@@ -1,10 +1,10 @@
-package pl.bartek537.forest.service
+package com.qcgm1978.forest.service
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-import pl.bartek537.forest.core.domain.usecase.DayUseCases
+import com.qcgm1978.forest.core.domain.usecase.DayUseCases
 import java.time.LocalDate
 import kotlin.math.roundToInt
 

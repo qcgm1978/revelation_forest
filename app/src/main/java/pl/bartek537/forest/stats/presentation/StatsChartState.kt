@@ -1,6 +1,6 @@
-package pl.bartek537.forest.stats.presentation
+package com.qcgm1978.forest.stats.presentation
 
-import pl.bartek537.forest.core.domain.model.Day
+import com.qcgm1978.forest.core.domain.model.Day
 import java.time.LocalDate
 
 data class StatsChartState(

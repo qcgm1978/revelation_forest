@@ -1,4 +1,4 @@
-package pl.bartek537.forest.core.domain.model
+package com.qcgm1978.forest.core.domain.model
 
 data class StatsSummary(
     val treesCollected: Int = 0,

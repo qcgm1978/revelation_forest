@@ -21,7 +21,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/settings_fragment"
-        android:name="pl.bartek537.forest.settings.SettingsFragment"
+        android:name="com.qcgm1978.forest.settings.SettingsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />

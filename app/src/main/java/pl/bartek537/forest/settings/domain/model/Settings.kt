@@ -1,4 +1,4 @@
-package pl.bartek537.forest.settings.domain.model
+package com.qcgm1978.forest.settings.domain.model
 
 data class Settings(
     val dailyGoal: Int,

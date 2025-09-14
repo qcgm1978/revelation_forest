@@ -1,4 +1,4 @@
-package pl.bartek537.forest.core.presentation
+package com.qcgm1978.forest.core.presentation
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -16,10 +16,10 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import pl.bartek537.forest.R
-import pl.bartek537.forest.databinding.ActivityMainBinding
-import pl.bartek537.forest.service.StepCounterService
-import pl.bartek537.forest.settings.SettingsActivity
+import com.qcgm1978.forest.R
+import com.qcgm1978.forest.databinding.ActivityMainBinding
+import com.qcgm1978.forest.service.StepCounterService
+import com.qcgm1978.forest.settings.SettingsActivity
 
 class MainActivity : AppCompatActivity() {
 

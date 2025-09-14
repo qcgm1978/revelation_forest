@@ -1,4 +1,4 @@
-package pl.bartek537.forest.service
+package com.qcgm1978.forest.service
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -19,12 +19,12 @@ import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
-import pl.bartek537.forest.ForestApplication
-import pl.bartek537.forest.R
-import pl.bartek537.forest.core.data.repository.DayRepositoryImpl
-import pl.bartek537.forest.core.domain.usecase.DayUseCases
-import pl.bartek537.forest.core.presentation.MainActivity
-import pl.bartek537.forest.settings.data.repository.SettingsRepositoryImpl
+import com.qcgm1978.forest.ForestApplication
+import com.qcgm1978.forest.R
+import com.qcgm1978.forest.core.data.repository.DayRepositoryImpl
+import com.qcgm1978.forest.core.domain.usecase.DayUseCases
+import com.qcgm1978.forest.core.presentation.MainActivity
+import com.qcgm1978.forest.settings.data.repository.SettingsRepositoryImpl
 import java.time.LocalDate
 
 class StepCounterService : LifecycleService(), SensorEventListener {

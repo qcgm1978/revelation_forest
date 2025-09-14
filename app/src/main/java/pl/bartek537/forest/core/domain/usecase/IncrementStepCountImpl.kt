@@ -1,7 +1,7 @@
-package pl.bartek537.forest.core.domain.usecase
+package com.qcgm1978.forest.core.domain.usecase
 
 import kotlinx.coroutines.flow.first
-import pl.bartek537.forest.core.domain.repository.DayRepository
+import com.qcgm1978.forest.core.domain.repository.DayRepository
 import java.time.LocalDate
 
 class IncrementStepCountImpl(

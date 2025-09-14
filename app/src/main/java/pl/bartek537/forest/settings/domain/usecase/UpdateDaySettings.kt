@@ -1,7 +1,7 @@
-package pl.bartek537.forest.settings.domain.usecase
+package com.qcgm1978.forest.settings.domain.usecase
 
-import pl.bartek537.forest.core.domain.model.DaySettings
-import pl.bartek537.forest.core.domain.repository.DayRepository
+import com.qcgm1978.forest.core.domain.model.DaySettings
+import com.qcgm1978.forest.core.domain.repository.DayRepository
 
 interface UpdateDaySettings {
 

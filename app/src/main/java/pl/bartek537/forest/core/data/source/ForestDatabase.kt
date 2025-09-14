@@ -1,10 +1,10 @@
-package pl.bartek537.forest.core.data.source
+package com.qcgm1978.forest.core.data.source
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import pl.bartek537.forest.core.data.source.util.Converters
-import pl.bartek537.forest.core.domain.model.Day
+import com.qcgm1978.forest.core.data.source.util.Converters
+import com.qcgm1978.forest.core.domain.model.Day
 
 @Database(entities = [Day::class], version = 1)
 @TypeConverters(Converters::class)

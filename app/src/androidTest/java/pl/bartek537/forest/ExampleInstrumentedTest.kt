@@ -1,4 +1,4 @@
-package pl.bartek537.forest
+package com.qcgm1978.forest
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,4 +1,4 @@
-package pl.bartek537.forest.service
+package com.qcgm1978.forest.service
 
 import android.Manifest
 import android.content.BroadcastReceiver

@@ -1,8 +1,8 @@
-package pl.bartek537.forest.stats.domain.usecase
+package com.qcgm1978.forest.stats.domain.usecase
 
 import kotlinx.coroutines.flow.Flow
-import pl.bartek537.forest.core.domain.model.Day
-import pl.bartek537.forest.core.domain.repository.DayRepository
+import com.qcgm1978.forest.core.domain.model.Day
+import com.qcgm1978.forest.core.domain.repository.DayRepository
 import java.time.LocalDate
 
 interface GetWeek {

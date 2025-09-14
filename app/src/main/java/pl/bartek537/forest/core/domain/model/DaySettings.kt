@@ -1,4 +1,4 @@
-package pl.bartek537.forest.core.domain.model
+package com.qcgm1978.forest.core.domain.model
 
 import java.time.LocalDate
 

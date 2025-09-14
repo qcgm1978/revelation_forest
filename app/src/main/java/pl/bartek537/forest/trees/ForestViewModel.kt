@@ -1,4 +1,4 @@
-package pl.bartek537.forest.trees
+package com.qcgm1978.forest.trees
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import pl.bartek537.forest.ForestApplication
-import pl.bartek537.forest.core.data.repository.DayRepositoryImpl
-import pl.bartek537.forest.core.domain.usecase.DayUseCases
-import pl.bartek537.forest.settings.data.repository.SettingsRepositoryImpl
+import com.qcgm1978.forest.ForestApplication
+import com.qcgm1978.forest.core.data.repository.DayRepositoryImpl
+import com.qcgm1978.forest.core.domain.usecase.DayUseCases
+import com.qcgm1978.forest.settings.data.repository.SettingsRepositoryImpl
 import java.time.LocalDate
 
 data class FlowerState(

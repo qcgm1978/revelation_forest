@@ -1,4 +1,4 @@
-package pl.bartek537.forest.stats.presentation
+package com.qcgm1978.forest.stats.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,12 +10,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.qcgm1978.forest.databinding.FragmentStatsPageChartBinding
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
-import pl.bartek537.forest.core.domain.model.Day
-import pl.bartek537.forest.databinding.FragmentStatsPageChartBinding
-import pl.bartek537.forest.stats.util.toChartValues
+import com.qcgm1978.forest.core.domain.model.Day
+import com.qcgm1978.forest.stats.util.toChartValues
 import java.lang.Integer.max
 import java.time.LocalDate
 

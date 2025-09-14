@@ -1,4 +1,4 @@
-package pl.bartek537.forest.core.domain.usecase
+package com.qcgm1978.forest.core.domain.usecase
 
 import java.time.LocalDate
 

@@ -1,9 +1,9 @@
-package pl.bartek537.forest.settings
+package com.qcgm1978.forest.settings
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
-import pl.bartek537.forest.databinding.ActivitySettingsBinding
+import com.qcgm1978.forest.databinding.ActivitySettingsBinding
 
 class SettingsActivity : AppCompatActivity() {
 

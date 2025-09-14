@@ -1,4 +1,4 @@
-package pl.bartek537.forest.stats.util
+package com.qcgm1978.forest.stats.util
 
 import android.content.Context
 import android.util.TypedValue

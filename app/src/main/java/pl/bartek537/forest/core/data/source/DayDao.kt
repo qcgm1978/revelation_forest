@@ -1,9 +1,9 @@
-package pl.bartek537.forest.core.data.source
+package com.qcgm1978.forest.core.data.source
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
-import pl.bartek537.forest.core.domain.model.Day
-import pl.bartek537.forest.core.domain.model.DaySettings
+import com.qcgm1978.forest.core.domain.model.Day
+import com.qcgm1978.forest.core.domain.model.DaySettings
 import java.time.LocalDate
 
 @Dao

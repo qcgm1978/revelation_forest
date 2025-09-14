@@ -1,8 +1,8 @@
-package pl.bartek537.forest.stats.util
+package com.qcgm1978.forest.stats.util
 
 import com.google.android.material.R
-import pl.bartek537.forest.core.domain.model.Day
-import pl.bartek537.forest.stats.presentation.ChartAdapter
+import com.qcgm1978.forest.core.domain.model.Day
+import com.qcgm1978.forest.stats.presentation.ChartAdapter
 import java.time.LocalDate
 import java.time.format.TextStyle
 import java.util.*

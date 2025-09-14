@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = 'pl.bartek537.forest'
+    namespace = 'com.qcgm1978.forest'
     compileSdk = 36
 
     defaultConfig {
-        applicationId "pl.bk20.forest"
+        applicationId "com.qcgm1978.forest"
         minSdk 24
         targetSdk 33
         versionCode 1

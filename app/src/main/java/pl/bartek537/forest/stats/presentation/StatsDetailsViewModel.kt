@@ -1,4 +1,4 @@
-package pl.bartek537.forest.stats.presentation
+package com.qcgm1978.forest.stats.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -8,11 +8,11 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-import pl.bartek537.forest.ForestApplication
-import pl.bartek537.forest.core.data.repository.DayRepositoryImpl
-import pl.bartek537.forest.core.domain.usecase.DayUseCases
-import pl.bartek537.forest.settings.data.repository.SettingsRepositoryImpl
-import pl.bartek537.forest.stats.domain.usecase.StatsDetailsUseCases
+import com.qcgm1978.forest.ForestApplication
+import com.qcgm1978.forest.core.data.repository.DayRepositoryImpl
+import com.qcgm1978.forest.core.domain.usecase.DayUseCases
+import com.qcgm1978.forest.settings.data.repository.SettingsRepositoryImpl
+import com.qcgm1978.forest.stats.domain.usecase.StatsDetailsUseCases
 import java.time.LocalDate
 import kotlin.math.roundToInt
 

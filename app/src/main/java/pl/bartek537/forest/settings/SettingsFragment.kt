@@ -1,4 +1,4 @@
-package pl.bartek537.forest.settings
+package com.qcgm1978.forest.settings
 
 import android.os.Bundle
 import android.text.InputType
@@ -6,7 +6,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.preference.EditTextPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import pl.bartek537.forest.R
+import com.qcgm1978.forest.R
 
 class SettingsFragment : PreferenceFragmentCompat() {
 

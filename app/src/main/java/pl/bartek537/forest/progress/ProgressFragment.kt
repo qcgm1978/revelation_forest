@@ -1,4 +1,4 @@
-package pl.bartek537.forest.progress
+package com.qcgm1978.forest.progress
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,9 +9,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.qcgm1978.forest.R
+import com.qcgm1978.forest.databinding.FragmentProgressBinding
 import kotlinx.coroutines.launch
-import pl.bartek537.forest.R
-import pl.bartek537.forest.databinding.FragmentProgressBinding
 import java.text.DecimalFormat
 
 class ProgressFragment : Fragment() {
@@ -50,7 +50,7 @@ class ProgressFragment : Fragment() {
         val dailyGoalStepCount = numberFormat.format(dailyGoal)
         val dailyGoalText = getString(R.string.step_goal, dailyGoalStepCount)
         binding.apply {
-            textStepCount.text = formattedStepCount
+            textStepCount.text = resources.getQuantityString(R.plurals.step_count_format, stepsTaken, stepsTaken)
             textDailyGoal.text = dailyGoalText
             progressDailyGoal.max = dailyGoal
             progressDailyGoal.progress = stepsTaken

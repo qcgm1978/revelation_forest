@@ -1,11 +1,11 @@
-package pl.bartek537.forest.core.domain.usecase
+package com.qcgm1978.forest.core.domain.usecase
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
-import pl.bartek537.forest.core.domain.model.Day
-import pl.bartek537.forest.core.domain.model.of
-import pl.bartek537.forest.core.domain.repository.DayRepository
-import pl.bartek537.forest.settings.domain.repository.SettingsRepository
+import com.qcgm1978.forest.core.domain.model.Day
+import com.qcgm1978.forest.core.domain.model.of
+import com.qcgm1978.forest.core.domain.repository.DayRepository
+import com.qcgm1978.forest.settings.domain.repository.SettingsRepository
 import java.time.LocalDate
 
 class GetDayImpl(

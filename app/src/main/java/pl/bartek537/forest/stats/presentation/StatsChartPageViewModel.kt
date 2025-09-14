@@ -1,4 +1,4 @@
-package pl.bartek537.forest.stats.presentation
+package com.qcgm1978.forest.stats.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -9,11 +9,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import pl.bartek537.forest.ForestApplication
-import pl.bartek537.forest.core.data.repository.DayRepositoryImpl
-import pl.bartek537.forest.core.domain.model.Day
-import pl.bartek537.forest.stats.domain.usecase.StatsChartPageUseCases
-import pl.bartek537.forest.stats.util.alignWeek
+import com.qcgm1978.forest.ForestApplication
+import com.qcgm1978.forest.core.data.repository.DayRepositoryImpl
+import com.qcgm1978.forest.core.domain.model.Day
+import com.qcgm1978.forest.stats.domain.usecase.StatsChartPageUseCases
+import com.qcgm1978.forest.stats.util.alignWeek
 import java.time.LocalDate
 
 class StatsChartPageViewModel(

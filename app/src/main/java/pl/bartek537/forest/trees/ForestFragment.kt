@@ -1,4 +1,4 @@
-package pl.bartek537.forest.trees
+package com.qcgm1978.forest.trees
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
@@ -11,11 +11,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.qcgm1978.forest.BuildConfig
+import com.qcgm1978.forest.R
+import com.qcgm1978.forest.databinding.FragmentForestBinding
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import pl.bartek537.forest.BuildConfig
-import pl.bartek537.forest.databinding.FragmentForestBinding
 
 class ForestFragment : Fragment() {
 
@@ -68,7 +69,7 @@ class ForestFragment : Fragment() {
     }
 
     private fun updateUi(state: FlowerState) {
-        binding.textStepCount.text = "${state.steps} steps"
+        binding.textStepCount.text = resources.getQuantityString(R.plurals.step_count_format, state.steps, state.steps)
         binding.imageFlower.text = state.flowerIcon
 
         val scale = 1.0f + (state.steps % 3000) / 3000f * 0.2f

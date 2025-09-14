@@ -1,8 +1,8 @@
-package pl.bartek537.forest.core.domain.model
+package com.qcgm1978.forest.core.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import pl.bartek537.forest.settings.domain.model.Settings
+import com.qcgm1978.forest.settings.domain.model.Settings
 import java.time.LocalDate
 
 @Entity(tableName = "day")

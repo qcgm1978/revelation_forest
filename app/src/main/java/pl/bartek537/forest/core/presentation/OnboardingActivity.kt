@@ -1,11 +1,11 @@
-package pl.bartek537.forest.core.presentation
+package com.qcgm1978.forest.core.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import pl.bartek537.forest.R
-import pl.bartek537.forest.databinding.ActivityOnboardingBinding
+import com.qcgm1978.forest.R
+import com.qcgm1978.forest.databinding.ActivityOnboardingBinding
 
 class OnboardingActivity : AppCompatActivity() {
 
