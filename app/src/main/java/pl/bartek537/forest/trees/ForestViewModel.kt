@@ -1,11 +1,13 @@
 package com.qcgm1978.forest.trees
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.qcgm1978.forest.ForestApplication
+import com.qcgm1978.forest.R
 import com.qcgm1978.forest.core.data.repository.DayRepositoryImpl
 import com.qcgm1978.forest.core.domain.usecase.DayUseCases
 import com.qcgm1978.forest.settings.data.repository.SettingsRepositoryImpl
@@ -18,7 +20,8 @@ import kotlinx.coroutines.launch
 data class FlowerState(
     val steps: Int = 0,
     val flowerIcon: String = "🌱",
-    val flowerStage: Int = 1
+    val flowerStage: Int = 1,
+    val flowerName: String = ""
 )
 
 class ForestViewModel(
@@ -34,10 +37,12 @@ class ForestViewModel(
             application.steps.collect { steps ->
                 val flowerStage = getFlowerStage(steps)
                 val flowerIcon = getFlowerIcon(flowerStage)
+                val flowerName = getFlowerName(application, flowerStage)
                 _flowerState.value = FlowerState(
                     steps = steps,
                     flowerStage = flowerStage,
-                    flowerIcon = flowerIcon
+                    flowerIcon = flowerIcon,
+                    flowerName = flowerName
                 )
             }
         }
@@ -86,6 +91,15 @@ class ForestViewModel(
             10 -> "💐" // 白玫瑰
             else -> "🌻" // 完成！（向日葵）
         }
+    }
+
+    private fun getFlowerName(context: Context, stage: Int): String {
+        val resourceId = context.resources.getIdentifier(
+            "flower_name_$stage",
+            "string",
+            context.packageName
+        )
+        return context.getString(resourceId)
     }
 
     object Factory : ViewModelProvider.Factory {

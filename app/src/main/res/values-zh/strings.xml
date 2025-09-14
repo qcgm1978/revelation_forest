@@ -32,6 +32,17 @@
     <string name="welcome_line_2">每一步都是进步，期待花开。</string>
     <string name="walk_button_text">走路</string>
     <string name="reset_button_text">重置</string>
+    <string name="flower_name_1">花苞</string>
+    <string name="flower_name_2">满天星</string>
+    <string name="flower_name_3">数字薄荷</string>
+    <string name="flower_name_4">郁金香</string>
+    <string name="flower_name_5">秋菊</string>
+    <string name="flower_name_6">火鹤花</string>
+    <string name="flower_name_7">薰衣草</string>
+    <string name="flower_name_8">月光花</string>
+    <string name="flower_name_9">晚香玉</string>
+    <string name="flower_name_10">白玫瑰</string>
+    <string name="flower_name_11">向日葵</string>
 
     <!-- Progress -->
     <string name="carbon_dioxide_saved">节省的二氧化碳</string>

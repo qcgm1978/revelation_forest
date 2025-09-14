@@ -59,7 +59,7 @@ class ForestFragment : Fragment() {
             binding.buttonReset.isVisible = true
 
             binding.buttonWalk.setOnClickListener {
-                viewModel.incrementSteps(500)
+                viewModel.incrementSteps(5000)
             }
 
             binding.buttonReset.setOnClickListener {
@@ -71,6 +71,7 @@ class ForestFragment : Fragment() {
     private fun updateUi(state: FlowerState) {
         binding.textStepCount.text = resources.getQuantityString(R.plurals.step_count_format, state.steps, state.steps)
         binding.imageFlower.text = state.flowerIcon
+        binding.textFlowerName.text = state.flowerName
 
         val scale = 0.25f + (state.steps % 3000) / 3000f * 0.75f
         binding.imageFlower.scaleX = scale
