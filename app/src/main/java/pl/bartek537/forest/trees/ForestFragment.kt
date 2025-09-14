@@ -72,7 +72,7 @@ class ForestFragment : Fragment() {
         binding.textStepCount.text = resources.getQuantityString(R.plurals.step_count_format, state.steps, state.steps)
         binding.imageFlower.text = state.flowerIcon
 
-        val scale = 1.0f + (state.steps % 3000) / 3000f * 0.2f
+        val scale = 0.25f + (state.steps % 3000) / 3000f * 0.75f
         binding.imageFlower.scaleX = scale
         binding.imageFlower.scaleY = scale
     }

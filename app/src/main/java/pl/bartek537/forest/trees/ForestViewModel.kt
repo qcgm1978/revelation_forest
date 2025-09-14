@@ -62,17 +62,29 @@ class ForestViewModel(
             steps < 6000 -> 2
             steps < 10000 -> 3
             steps < 20000 -> 4
-            else -> 5
+            steps < 30000 -> 5
+            steps < 40000 -> 6
+            steps < 50000 -> 7
+            steps < 60000 -> 8
+            steps < 70000 -> 9
+            steps < 80000 -> 10
+            else -> 11
         }
     }
 
     private fun getFlowerIcon(stage: Int): String {
         return when (stage) {
-            1 -> "🌱"
-            2 -> "✨"
-            3 -> "🌿"
-            4 -> "🏵️"
-            else -> "✅"
+            1 -> "🌱" // 花苞
+            2 -> "✨" // 满天星
+            3 -> "🌿" // 数字薄荷
+            4 -> "🌷" // 郁金香
+            5 -> "🏵️" // 秋菊
+            6 -> "🌺" // 火鹤花
+            7 -> "💜" // 薰衣草
+            8 -> "🌸" // 月光花
+            9 -> "🌹" // 晚香玉
+            10 -> "💐" // 白玫瑰
+            else -> "🌻" // 完成！（向日葵）
         }
     }
 
