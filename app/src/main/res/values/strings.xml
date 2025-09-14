@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Forest</string>
+    <string name="app_name">Love Autumn</string>
     <string name="step_counter_channel">Step counter</string>
     <plurals name="step_count">
         <item quantity="one">%d step today</item>
@@ -18,16 +18,20 @@
     <string name="activity_recognition_rationale">This permission is required to detect and count the steps you take.</string>
 
     <!-- Navigation -->
-    <string name="forest">Forest</string>
+    <string name="forest">Love Autumn</string>
     <string name="tree">Tree</string>
     <string name="stats">Stats</string>
 
-    <!-- Forest -->
+    <!-- Love Autumn -->
     <string name="flower">Flower</string>
     <plurals name="trees">
         <item quantity="one">tree</item>
         <item quantity="other">trees</item>
     </plurals>
+    <string name="welcome_line_1">Hello, Qiu.</string>
+    <string name="welcome_line_2">Every step is progress, looking forward to the flower blooming.</string>
+    <string name="walk_button_text">Walk</string>
+    <string name="reset_button_text">Reset</string>
 
     <!-- Progress -->
     <string name="carbon_dioxide_saved">Carbon dioxide saved</string>
