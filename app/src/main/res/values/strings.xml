@@ -23,6 +23,7 @@
     <string name="stats">Stats</string>
 
     <!-- Forest -->
+    <string name="flower">Flower</string>
     <plurals name="trees">
         <item quantity="one">tree</item>
         <item quantity="other">trees</item>

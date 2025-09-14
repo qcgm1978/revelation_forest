@@ -1,21 +1,21 @@
 package pl.bartek537.forest.trees
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.updateLayoutParams
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import pl.bartek537.forest.R
+import pl.bartek537.forest.BuildConfig
 import pl.bartek537.forest.databinding.FragmentForestBinding
-import kotlin.random.Random
 
 class ForestFragment : Fragment() {
 
@@ -33,43 +33,53 @@ class ForestFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.trees.collect { updateUserInterface(it) }
+        setupDebugButtons()
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.flowerState.collect { state ->
+                    updateUi(state)
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.flowerState.map { it.flowerStage }.distinctUntilChanged().collect { _ ->
+                    animateFlowerBloom()
+                }
             }
         }
     }
 
-    private fun updateUserInterface(forestState: ForestState) {
-        val treeCount = forestState.treeCount
-        binding.apply {
-            textTreesCollected.text = treeCount.toString()
-            textTreesCollectedLabel.text = resources.getQuantityString(R.plurals.trees, treeCount)
-        }
-        generateTrees(forestState.treeCount)
-    }
+    private fun setupDebugButtons() {
+        if (BuildConfig.DEBUG) {
+            binding.buttonWalk.isVisible = true
+            binding.buttonReset.isVisible = true
 
-    private fun generateTrees(treeCount: Int) {
-        val parentLayout = binding.constraintLayoutTrees
-        parentLayout.removeAllViews()
-        val gapCount = treeCount + 1
-        repeat(treeCount) {
-            val fixedPosition = (it + 1.0) / gapCount
-            val randomOffset = (Random.nextDouble() - 0.5) / 5
-            val horizontalPosition = fixedPosition + randomOffset
-            createTree(parentLayout, horizontalPosition)
+            binding.buttonWalk.setOnClickListener {
+                viewModel.incrementSteps(500)
+            }
+
+            binding.buttonReset.setOnClickListener {
+                viewModel.resetSteps()
+            }
         }
     }
 
-    private fun createTree(parentLayout: ConstraintLayout, horizontalPosition: Double) {
-        val treeImageView = ImageView(context)
-        treeImageView.setImageResource(R.drawable.tree_collected)
-        parentLayout.addView(treeImageView)
-        treeImageView.updateLayoutParams<ConstraintLayout.LayoutParams> {
-            startToStart = parentLayout.id
-            endToEnd = parentLayout.id
-            bottomToBottom = parentLayout.id
-            horizontalBias = horizontalPosition.toFloat()
+    private fun updateUi(state: FlowerState) {
+        binding.textStepCount.text = "${state.steps} steps"
+        binding.imageFlower.text = state.flowerIcon
+
+        val scale = 1.0f + (state.steps % 3000) / 3000f * 0.2f
+        binding.imageFlower.scaleX = scale
+        binding.imageFlower.scaleY = scale
+    }
+
+    private fun animateFlowerBloom() {
+        val animator = ObjectAnimator.ofFloat(binding.imageFlower, "alpha", 0f, 1f).apply {
+            duration = 1000
         }
+        animator.start()
     }
 }
