@@ -2,8 +2,11 @@ package com.qcgm1978.forest.settings
 
 import android.os.Bundle
 import android.text.InputType
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import androidx.fragment.app.activityViewModels
 import androidx.preference.EditTextPreference
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.qcgm1978.forest.R
@@ -32,6 +35,15 @@ class SettingsFragment : PreferenceFragmentCompat() {
             preference?.setOnBindEditTextListener { editText ->
                 editText.inputType = InputType.TYPE_CLASS_NUMBER
             }
+        }
+
+        val languagePreference = findPreference<ListPreference>("language")
+        languagePreference?.setOnPreferenceChangeListener { _, newValue ->
+            val language = newValue as String
+            AppCompatDelegate.setApplicationLocales(
+                LocaleListCompat.forLanguageTags(language)
+            )
+            true
         }
     }
 }

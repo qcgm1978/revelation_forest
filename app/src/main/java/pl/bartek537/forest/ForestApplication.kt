@@ -5,14 +5,16 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import androidx.preference.PreferenceManager
 import androidx.room.Room
 import com.google.android.material.color.DynamicColors
 import com.qcgm1978.forest.R
-import kotlinx.coroutines.flow.MutableStateFlow
 import com.qcgm1978.forest.core.data.source.ForestDatabase
 import com.qcgm1978.forest.settings.data.source.SettingsStore
 import com.qcgm1978.forest.settings.data.source.SettingsStoreImpl
+import kotlinx.coroutines.flow.MutableStateFlow
 import java.time.LocalDate
 
 class ForestApplication : Application() {
@@ -26,11 +28,16 @@ class ForestApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val language = sharedPreferences.getString("language", "en") ?: "en"
+        AppCompatDelegate.setApplicationLocales(
+            LocaleListCompat.forLanguageTags(language)
+        )
+
         DynamicColors.applyToActivitiesIfAvailable(this)
         PreferenceManager.setDefaultValues(this, R.xml.settings, false)
         registerMidnightTimer()
 
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         settingsStore = SettingsStoreImpl(sharedPreferences)
 
         forestDatabase = Room.databaseBuilder(

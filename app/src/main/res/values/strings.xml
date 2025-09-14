@@ -82,6 +82,15 @@
         <item>1</item>
         <item>1.2</item>
     </string-array>
+    <string name="language">Language</string>
+    <string-array name="language_entries">
+        <item>English</item>
+        <item>简体中文</item>
+    </string-array>
+    <string-array name="language_values" translatable="false">
+        <item>en</item>
+        <item>zh</item>
+    </string-array>
     <string name="about">About</string>
     <string name="github" translatable="false">GitHub</string>
     <string name="github_summary">Check out our GitHub repository and help us improve the app</string>

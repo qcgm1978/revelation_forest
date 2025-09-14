@@ -37,6 +37,17 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory app:title="@string/language">
+
+        <ListPreference
+            app:defaultValue="en"
+            app:entries="@array/language_entries"
+            app:entryValues="@array/language_values"
+            app:key="language"
+            app:title="@string/language" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory app:title="@string/about">
 
         <Preference
@@ -45,7 +56,7 @@
 
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="@string/github_repository_url" />
+                android.data="@string/github_repository_url" />
 
         </Preference>
 
