@@ -1,5 +1,6 @@
 package com.qcgm1978.forest.service
 
+import com.qcgm1978.forest.ForestApplication
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.*
@@ -11,7 +12,7 @@ import kotlin.math.roundToInt
 class StepCounterController(
     private val dayUseCases: DayUseCases,
     private val coroutineScope: CoroutineScope,
-    currentDateFlow: StateFlow<LocalDate>,
+    private val application: ForestApplication,
 ) {
 
     private val _stats = MutableStateFlow(StepCounterState(LocalDate.now(), 0, 0, 0.0, 0))
@@ -21,7 +22,7 @@ class StepCounterController(
 
     init {
         coroutineScope.launch {
-            currentDateFlow.collect { getStats(it) }
+            application.currentDate.collect { getStats(it) }
         }
     }
 
@@ -38,6 +39,7 @@ class StepCounterController(
                     calorieBurned = calorieBurned.roundToInt()
                 )
             }
+            application.steps.value = day.steps
         }.launchIn(coroutineScope)
     }
 
@@ -53,6 +55,7 @@ class StepCounterController(
     }
 
     fun onStepCountChanged(newStepCount: Int, eventDate: LocalDate) {
+        application.steps.value = newStepCount
         rawStepSensorReadings.value = StepCounterEvent(newStepCount, eventDate)
     }
 }

@@ -56,7 +56,7 @@ class StepCounterService : LifecycleService(), SensorEventListener {
         val dayRepository = DayRepositoryImpl(dayDatabase.dayDao)
         val dayUseCases = DayUseCases(dayRepository, settingsRepository)
 
-        controller = StepCounterController(dayUseCases, lifecycleScope, application.currentDate)
+        controller = StepCounterController(dayUseCases, lifecycleScope, application)
 
         // Create notification
         val notification = createNotification(controller.stats.value)

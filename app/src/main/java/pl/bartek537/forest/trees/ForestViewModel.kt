@@ -5,26 +5,25 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
+import com.qcgm1978.forest.ForestApplication
+import com.qcgm1978.forest.core.data.repository.DayRepositoryImpl
+import com.qcgm1978.forest.core.domain.usecase.DayUseCases
+import com.qcgm1978.forest.settings.data.repository.SettingsRepositoryImpl
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import com.qcgm1978.forest.ForestApplication
-import com.qcgm1978.forest.core.data.repository.DayRepositoryImpl
-import com.qcgm1978.forest.core.domain.usecase.DayUseCases
-import com.qcgm1978.forest.settings.data.repository.SettingsRepositoryImpl
-import java.time.LocalDate
 
 data class FlowerState(
     val steps: Int = 0,
-    val flowerStage: Int = 1,
-    val flowerIcon: String = "🌱"
+    val flowerIcon: String = "🌱",
+    val flowerStage: Int = 1
 )
 
 class ForestViewModel(
     private val dayUseCases: DayUseCases,
-    private val currentDate: StateFlow<LocalDate>
+    private val application: ForestApplication,
 ) : ViewModel() {
 
     private val _flowerState = MutableStateFlow(FlowerState())
@@ -32,30 +31,28 @@ class ForestViewModel(
 
     init {
         viewModelScope.launch {
-            currentDate.collect { date ->
-                dayUseCases.getDay(date).collect { day ->
-                    val flowerStage = getFlowerStage(day.steps)
-                    val flowerIcon = getFlowerIcon(flowerStage)
-                    _flowerState.value = FlowerState(
-                        steps = day.steps,
-                        flowerStage = flowerStage,
-                        flowerIcon = flowerIcon
-                    )
-                }
+            application.steps.collect { steps ->
+                val flowerStage = getFlowerStage(steps)
+                val flowerIcon = getFlowerIcon(flowerStage)
+                _flowerState.value = FlowerState(
+                    steps = steps,
+                    flowerStage = flowerStage,
+                    flowerIcon = flowerIcon
+                )
             }
         }
     }
 
     fun incrementSteps(amount: Int) {
         viewModelScope.launch {
-            dayUseCases.incrementStepCount(currentDate.value, amount)
+            dayUseCases.incrementStepCount(application.currentDate.value, amount)
         }
     }
 
     fun resetSteps() {
         viewModelScope.launch {
-            val day = dayUseCases.getDay(currentDate.value).first()
-            dayUseCases.incrementStepCount(currentDate.value, -day.steps)
+            val day = dayUseCases.getDay(application.currentDate.value).first()
+            dayUseCases.incrementStepCount(application.currentDate.value, -day.steps)
         }
     }
 
@@ -89,7 +86,7 @@ class ForestViewModel(
             val settingsStore = application.settingsStore
             val settingsRepository = SettingsRepositoryImpl(settingsStore)
             val dayUseCases = DayUseCases(dayRepository, settingsRepository)
-            return ForestViewModel(dayUseCases, application.currentDate) as T
+            return ForestViewModel(dayUseCases, application) as T
         }
     }
 }

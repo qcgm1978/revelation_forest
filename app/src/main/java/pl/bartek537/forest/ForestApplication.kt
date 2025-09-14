@@ -21,6 +21,7 @@ class ForestApplication : Application() {
     lateinit var forestDatabase: ForestDatabase
 
     val currentDate = MutableStateFlow<LocalDate>(LocalDate.now())
+    val steps = MutableStateFlow(0)
 
     override fun onCreate() {
         super.onCreate()
