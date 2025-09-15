@@ -40,9 +40,9 @@ class MainActivity : AppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
+                R.id.forestFragment,
                 R.id.progressFragment,
                 R.id.statsFragment,
-                R.id.forestFragment,
             )
         )
 

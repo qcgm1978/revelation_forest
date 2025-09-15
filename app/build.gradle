@@ -40,6 +40,12 @@ android {
             jvmTarget = JvmTarget.JVM_11
         }
     }
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            //noinspection deprecation
+            output.outputFileName = "love-autumn.apk"
+        }
+    }
 }
 
 dependencies {
