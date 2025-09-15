@@ -21,6 +21,8 @@
     <string name="forest">爱秋</string>
     <string name="tree">书</string>
     <string name="stats">统计</string>
+    <string name="stand_time">站立时间</string>
+    <string name="balance">平衡度</string>
 
     <!-- Forest -->
     <string name="flower">花</string>
@@ -93,4 +95,8 @@
     <!-- About -->
     <string name="about">关于</string>
     <string name="github_summary">查看我们的 GitHub 仓库，帮助我们改进应用</string>
+
+    <!-- Debug -->
+    <string name="start_still">开始静止</string>
+    <string name="stop_still">结束静止</string>
 </resources>

@@ -21,6 +21,8 @@
     <string name="forest">Love Autumn</string>
     <string name="tree">Book</string>
     <string name="stats">Stats</string>
+    <string name="stand_time">Stand Time</string>
+    <string name="balance">Balance</string>
 
     <!-- Love Autumn -->
     <string name="flower">Flower</string>
@@ -106,4 +108,8 @@
     <string name="github" translatable="false">GitHub</string>
     <string name="github_summary">Check out our GitHub repository and help us improve the app</string>
     <string name="github_repository_url" translatable="false">https://github.com/qcgm1978/revelation_forest</string>
+
+    <!-- Debug -->
+    <string name="start_still">Start Still</string>
+    <string name="stop_still">Stop Still</string>
 </resources>

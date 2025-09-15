@@ -38,4 +38,8 @@ class DayRepositoryImpl(
     override suspend fun updateDaySettings(daySettings: DaySettings) {
         dao.updateDaySettings(daySettings)
     }
+
+    override suspend fun incrementStandTime(date: LocalDate, duration: Long) {
+        dao.incrementStandTime(date, duration)
+    }
 }

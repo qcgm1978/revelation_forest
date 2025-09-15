@@ -14,6 +14,7 @@ navigation = "2.9.3"
 preference = "1.2.1"
 room = "2.7.2"
 swipeRefreshLayout = "1.1.0"
+playServicesLocation = "21.3.0"
 
 [libraries]
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
@@ -32,6 +33,7 @@ androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "s
 androidx-test-espresso = { group = "androidx.test.espresso", name = "espresso-core", version = "3.7.0" }
 androidx-test-junit = { group = "androidx.test.ext", name = "junit", version = "1.3.0" }
 android-material-design = { group = "com.google.android.material", name = "material", version.ref = "materialDesign" }
+playservicesLocation = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
 junit = { group = "junit", name = "junit", version = "4.13.2" }
 tools-desugar-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugarJdkLibs" }
 

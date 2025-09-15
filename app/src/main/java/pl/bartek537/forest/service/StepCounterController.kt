@@ -1,5 +1,8 @@
 package com.qcgm1978.forest.service
 
+import com.google.android.gms.location.ActivityTransition
+import com.google.android.gms.location.ActivityTransitionEvent
+import com.google.android.gms.location.DetectedActivity
 import com.qcgm1978.forest.ForestApplication
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -57,5 +60,23 @@ class StepCounterController(
     fun onStepCountChanged(newStepCount: Int, eventDate: LocalDate) {
         application.steps.value = newStepCount
         rawStepSensorReadings.value = StepCounterEvent(newStepCount, eventDate)
+    }
+
+    private var stillActivityStartTime: Long? = null
+
+    fun onActivityTransition(event: ActivityTransitionEvent) {
+        if (event.activityType == DetectedActivity.STILL) {
+            if (event.transitionType == ActivityTransition.ACTIVITY_TRANSITION_ENTER) {
+                stillActivityStartTime = System.currentTimeMillis()
+            } else if (event.transitionType == ActivityTransition.ACTIVITY_TRANSITION_EXIT) {
+                stillActivityStartTime?.let { startTime ->
+                    val duration = System.currentTimeMillis() - startTime
+                    coroutineScope.launch {
+                        dayUseCases.incrementStandTime(stats.value.date, duration)
+                    }
+                    stillActivityStartTime = null
+                }
+            }
+        }
     }
 }

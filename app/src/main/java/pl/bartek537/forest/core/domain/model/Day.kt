@@ -14,6 +14,8 @@ data class Day(
 
     val goal: Int,
 
+    val standTime: Long = 0,
+
     val height: Int = 188,
 
     val weight: Int = 70,
@@ -49,6 +51,7 @@ fun Day.Companion.of(date: LocalDate, settings: Settings, steps: Int = 0): Day {
             date = date,
             steps = steps,
             goal = dailyGoal,
+            standTime = 0,
             height = height,
             weight = weight,
             stepLength = stepLength,

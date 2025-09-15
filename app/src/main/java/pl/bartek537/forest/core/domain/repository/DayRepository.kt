@@ -20,4 +20,6 @@ interface DayRepository {
     suspend fun upsertDay(day: Day)
 
     suspend fun updateDaySettings(daySettings: DaySettings)
+
+    suspend fun incrementStandTime(date: LocalDate, duration: Long)
 }

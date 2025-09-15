@@ -16,4 +16,14 @@
         android:icon="@drawable/show_chart_fill0_wght400_grad0_opsz24"
         android:title="@string/stats" />
 
+    <item
+        android:id="@+id/standTimeFragment"
+        android:icon="@drawable/directions_walk_fill0_wght400_grad0_opsz48"
+        android:title="@string/stand_time" />
+
+    <item
+        android:id="@+id/balanceFragment"
+        android:icon="@drawable/conversion_path_fill0_wght400_grad0_opsz24"
+        android:title="@string/balance" />
+
 </menu>

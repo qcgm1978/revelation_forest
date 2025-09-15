@@ -29,4 +29,7 @@ interface DayDao {
 
     @Update(entity = Day::class)
     suspend fun updateDaySettings(day: DaySettings)
+
+    @Query("UPDATE day SET standTime = standTime + :duration WHERE date = :date")
+    suspend fun incrementStandTime(date: LocalDate, duration: Long)
 }

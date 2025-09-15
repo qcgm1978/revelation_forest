@@ -28,4 +28,16 @@
         android:label="@string/forest"
         tools:layout="@layout/fragment_forest" />
 
+    <fragment
+        android:id="@+id/standTimeFragment"
+        android:name="com.qcgm1978.forest.standtime.StandTimeFragment"
+        android:label="@string/stand_time"
+        tools:layout="@layout/fragment_stand_time" />
+
+    <fragment
+        android:id="@+id/balanceFragment"
+        android:name="com.qcgm1978.forest.balance.BalanceFragment"
+        android:label="@string/balance"
+        tools:layout="@layout/fragment_balance" />
+
 </navigation>

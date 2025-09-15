@@ -1,11 +1,13 @@
 package com.qcgm1978.forest.service
 
+import android.Manifest
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -14,17 +16,23 @@ import android.os.Build
 import android.os.Build.VERSION_CODES
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import kotlinx.coroutines.launch
+import com.google.android.gms.location.ActivityRecognition
+import com.google.android.gms.location.ActivityTransition
+import com.google.android.gms.location.ActivityTransitionRequest
+import com.google.android.gms.location.ActivityTransitionResult
+import com.google.android.gms.location.DetectedActivity
 import com.qcgm1978.forest.ForestApplication
 import com.qcgm1978.forest.R
 import com.qcgm1978.forest.core.data.repository.DayRepositoryImpl
 import com.qcgm1978.forest.core.domain.usecase.DayUseCases
 import com.qcgm1978.forest.core.presentation.MainActivity
 import com.qcgm1978.forest.settings.data.repository.SettingsRepositoryImpl
+import kotlinx.coroutines.launch
 import java.time.LocalDate
 
 class StepCounterService : LifecycleService(), SensorEventListener {
@@ -36,6 +44,31 @@ class StepCounterService : LifecycleService(), SensorEventListener {
         private const val NOTIFICATION_CHANNEL_ID = "step_counter_channel"
         private const val NOTIFICATION_ID = 0x1
         private const val PENDING_INTENT_ID = 0x1
+        private const val ACTIVITY_TRANSITION_PENDING_INTENT_ID = 0x2
+        private const val ACTION_PROCESS_ACTIVITY_TRANSITIONS = "PROCESS_ACTIVITY_TRANSITIONS"
+    }
+
+    private val activityTransitionPendingIntent by lazy {
+        val intent = Intent(this, StepCounterService::class.java)
+        intent.action = ACTION_PROCESS_ACTIVITY_TRANSITIONS
+        PendingIntent.getService(
+            this,
+            ACTIVITY_TRANSITION_PENDING_INTENT_ID,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
+        )
+    }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        if (intent?.action == ACTION_PROCESS_ACTIVITY_TRANSITIONS) {
+            if (ActivityTransitionResult.hasResult(intent)) {
+                val result = ActivityTransitionResult.extractResult(intent)!!
+                for (event in result.transitionEvents) {
+                    controller.onActivityTransition(event)
+                }
+            }
+        }
+        return super.onStartCommand(intent, flags, startId)
     }
 
     override fun onCreate() {
@@ -46,6 +79,7 @@ class StepCounterService : LifecycleService(), SensorEventListener {
         }
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         registerStepCounter(sensorManager)
+        registerForActivityUpdates()
 
         // Initialise controller
         val application = application as ForestApplication
@@ -70,6 +104,25 @@ class StepCounterService : LifecycleService(), SensorEventListener {
                     notificationManager.notify(NOTIFICATION_ID, updatedNotification)
                 }
             }
+        }
+    }
+
+    private fun registerForActivityUpdates() {
+        val transitions = listOf(
+            ActivityTransition.Builder()
+                .setActivityType(DetectedActivity.STILL)
+                .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_ENTER)
+                .build(),
+            ActivityTransition.Builder()
+                .setActivityType(DetectedActivity.STILL)
+                .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_EXIT)
+                .build()
+        )
+        val request = ActivityTransitionRequest(transitions)
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_GRANTED) {
+            val activityRecognitionClient = ActivityRecognition.getClient(this)
+            activityRecognitionClient.requestActivityTransitionUpdates(request, activityTransitionPendingIntent)
         }
     }
 
@@ -118,6 +171,8 @@ class StepCounterService : LifecycleService(), SensorEventListener {
     override fun onDestroy() {
         super.onDestroy()
         sensorManager.unregisterListener(this)
+        val activityRecognitionClient = ActivityRecognition.getClient(this)
+        activityRecognitionClient.removeActivityTransitionUpdates(activityTransitionPendingIntent)
     }
 
     @RequiresApi(VERSION_CODES.O)
