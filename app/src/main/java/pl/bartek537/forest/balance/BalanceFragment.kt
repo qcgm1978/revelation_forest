@@ -1,5 +1,6 @@
 package com.qcgm1978.forest.balance
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -42,13 +43,14 @@ class BalanceFragment : Fragment(), SensorEventListener {
         return binding.root
     }
 
+    @SuppressLint("UnsafeRepeatOnLifecycleDetector")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.balanceScore.collect { score ->
-                    binding.textBalanceScore.text = String.format("%.1f", score)
+                    binding.textBalanceScore.text = String.format("%.0f", score)
                 }
             }
         }
