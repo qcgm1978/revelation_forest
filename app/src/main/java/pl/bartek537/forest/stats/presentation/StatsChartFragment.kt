@@ -65,7 +65,7 @@ class StatsChartFragment : Fragment() {
             buttonNextDay.isVisible = selectedDate.isBefore(dateRange.endInclusive)
             chartPageAdapter.dateRange = dateRange
             scrollChartTo(selectedDate)
-            imageTree.setImageResource(getTreeResource(progress))
+//            imageTree.setImageResource(getTreeResource(progress))
         }
     }
 
