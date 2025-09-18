@@ -4,6 +4,8 @@
 
 该应用是邓紫棋爱情科幻小说《启示路》里面提到的手环app的复刻。
 
+## [English](README_EN.md)
+
 ## 在线体验
 
 [**立即体验 EBand**](https://qcgm1978.github.io/web_Eband/) 👈 点击链接在线访问。这个网页只是演示，其实是另一个项目生成的页面。
